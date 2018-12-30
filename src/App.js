@@ -128,7 +128,7 @@ validate(term){
         <div className="MyApp">
         <div className="row">
           <div className="col-md-12 col-xs-12">
-          <h1 className="text-center"><FontAwesomeIcon icon="user-astronaut" /> EOSplorer</h1>
+          <h1 className="text-center"><FontAwesomeIcon icon="user-astronaut" /> EOSplorer <span className="beta">Beta</span></h1>
           <p className="text-center">Your EOS account explorer.</p>
           <br />
 
