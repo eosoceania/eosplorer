@@ -1,0 +1,18 @@
+Header //Search
+body //results
+  basics //name,liquid,CPU,BW, RAM
+  security //Owner, Active
+  producers // voted
+footer
+
+<div className="text">
+    <var>{this.props.name}</var>
+    <label className="text-muted">Account name</label>
+</div>
+
+<div className="text">
+    <var>{this.props.liquid}</var>
+    <label className="text-muted">Liquid</label>
+</div>
+
+permissions[0].required_auth.keys[0].key
