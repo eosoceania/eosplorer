@@ -8,7 +8,7 @@ https://eosplorer.herokuapp.com
 
 ## Issues / Todo
 
-- set Meta Descriptions 
+- [D] set Meta Descriptions - added favicon. updated metta, manifest json, cleaned up index.html  
 - Sometimes crashing on loading, Heroku HR12 error. Is this because componentWillMount not handled error? Investigate heroku logs
 - Add as subdomain eosplorer.eosoceania.io Understand why CNAME record is failing
 - Form validation / Account input. Add constraints of EOS account names. Understand why Regex for checking isUppercase is not checking every char as being typed
