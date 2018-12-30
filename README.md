@@ -26,6 +26,11 @@ see App.js line 81
 - Add send money functionality. See EOS js
 - Add voting functionality. See EOS js
 
+## Helpful docs
+https://developers.eos.io/eosio-nodeos/reference
+https://eospark.com/openapi
+https://github.com/EOSIO/eosjs
+
 ### Connect with us!
 We are a friendly and talkative team.
 Find <a href="https://www.eosoceania.io">EOS Oceania</a> here:
