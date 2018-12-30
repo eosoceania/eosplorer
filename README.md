@@ -19,12 +19,12 @@ see App.js line 81
 - Make logic to check if active and owner keys are same
 - Make it more responsive/ mobile friendly
 
-- Grab balances of all tokens
-- Grab last 20 transactions
-- Integrate scatter wallet
-- Add staking functionality
-- Add send money functionality
-- Add voting functionality
+- Grab balances of all tokens. Does any BP have /get_currency_stats endpoint enabled? See developers.eos.io
+- Grab last 20 transactions. Will the Cryptolions Mongo Histpry API be helpful?
+- Integrate scatter wallet. Will the scatter-js library be needed?
+- Add staking functionality. See EOS js example broadcasts.
+- Add send money functionality. See EOS js
+- Add voting functionality. See EOS js
 
 ### Connect with us!
 We are a friendly and talkative team.
