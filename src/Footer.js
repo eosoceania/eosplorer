@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Alert, Progress } from 'reactstrap';
 import "./App.css";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare,faUser,faWallet,faBatteryFull,faGlobe,faBatteryHalf } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faCheckSquare,faUser,faWallet,faBatteryFull,faGlobe,faBatteryHalf);
-
-var bootstrap = require('bootstrap');
 
 class Footer extends Component {
 

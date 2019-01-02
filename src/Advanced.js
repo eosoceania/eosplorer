@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Alert, Progress } from 'reactstrap';
+import { Card, CardText, CardTitle, CardSubtitle, Progress } from 'reactstrap';
 import "./App.css";
 
 

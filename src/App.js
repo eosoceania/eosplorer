@@ -4,23 +4,20 @@ import Advanced from './Advanced'
 import Producers from './Producers'
 import Footer from './Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert,Table,Progress,Button } from 'reactstrap';
 import "./App.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserAstronaut,faCheckSquare,faHammer,faUserAlt,faUsers } from '@fortawesome/free-solid-svg-icons'
 
 var request = require('request');
-var bootstrap = require('bootstrap');
 
 
 library.add(faUserAstronaut,faHammer,faCheckSquare,faUserAlt,faUsers);
 
 const aStyle={color:'red'};
-const bStyle={background:"blue"};
 
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -84,7 +81,7 @@ validate(term){
     for (i=0; i<term.length; i++){
       if (!isNaN(term * 1)){
         }else{
-          if (term == term.toUpperCase()) {
+          if (term === term.toUpperCase()) {
             check=false;
           }
     return check
@@ -98,7 +95,7 @@ validate(term){
     // var val = term.match(pattern);
     // console.log('Capitals found: ' + val);
     return (
-      term.length == 12
+      term.length === 12
     );
   }
 
@@ -165,7 +162,7 @@ validate(term){
   }
 }
 const Child = () => (
-    <img width="60px" height="60px" src={require('./assets/spinners/loading5.gif')} />
+    <img width="60px" height="60px" alt="Loading..." src={require('./assets/spinners/loading5.gif')} />
 )
 const Notification = () => (
   <p style={aStyle}>Invalid account name.</p>

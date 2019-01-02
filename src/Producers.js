@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Alert, Progress, Table } from 'reactstrap';
 import "./App.css";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
