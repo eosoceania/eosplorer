@@ -10,6 +10,7 @@ https://eosplorer.herokuapp.com
 
 - [D] set Meta Descriptions - added favicon. updated metta, manifest json, cleaned up index.html  
 - [IN PROGRESS] Sometimes crashing on loading, Heroku HR12 error. Is this because componentWillMount not handled error? Investigate heroku logs - HR12 means request timeout  (https://devcenter.heroku.com/articles/error-codes#h12-request-timeout). 
+  Have separated out components, and updated loading order
 - Add as subdomain eosplorer.eosoceania.io Understand why CNAME record is failing
 - Form validation / Account input. Add constraints of EOS account names. Understand why Regex for checking isUppercase is not checking every char as being typed
 see App.js line 81
@@ -38,7 +39,7 @@ Find <a href="https://www.eosoceania.io">EOS Oceania</a> here:
 
 
 ### Additional things to do:
-[TO FOLLOW UP] Advanced.js: validateDOMNesting(...): <div> cannot appear as a descendant of <p>.
+[DONE] Advanced.js: validateDOMNesting(...): <div> cannot appear as a descendant of <p>.
   This is because https://github.com/reactstrap/reactstrap/issues/715
   I believe this is because 'CardText' from reactstrap is expecting text, not a 'Progress'.
   To look into if we can do with out wrapping it in 'CardText'
@@ -119,5 +120,5 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
   - there's currently no fix until webpack fixes their problem. https://stackoverflow.com/questions/53245592/how-to-fix-missing-origin-validation-error-for-webpack-dev-server-in-npm
   https://www.npmjs.com/advisories/725/versions
 
-  
+
 
