@@ -9,7 +9,7 @@ https://eosplorer.herokuapp.com
 ## Issues / Todo
 
 - [D] set Meta Descriptions - added favicon. updated metta, manifest json, cleaned up index.html  
-- Sometimes crashing on loading, Heroku HR12 error. Is this because componentWillMount not handled error? Investigate heroku logs - HR12 means request timeout  (https://devcenter.heroku.com/articles/error-codes#h12-request-timeout). 
+- [IN PROGRESS] Sometimes crashing on loading, Heroku HR12 error. Is this because componentWillMount not handled error? Investigate heroku logs - HR12 means request timeout  (https://devcenter.heroku.com/articles/error-codes#h12-request-timeout). 
 - Add as subdomain eosplorer.eosoceania.io Understand why CNAME record is failing
 - Form validation / Account input. Add constraints of EOS account names. Understand why Regex for checking isUppercase is not checking every char as being typed
 see App.js line 81
@@ -91,3 +91,15 @@ Find <a href="https://www.eosoceania.io">EOS Oceania</a> here:
   Line 3:  'CardBody' is defined but never used  no-unused-vars
   Line 3:  'Button' is defined but never used    no-unused-vars
   Line 3:  'Alert' is defined but never used     no-unused-vars
+
+  ## Optimization
+    Loading: 12ms
+    script: 685
+    render: 17
+    other: 230
+    Idle: 5830
+Load: 3.76s
+DOMContentLoad: 3.66s
+
+at=error code=H12 desc="Request timeout" method=GET path="/" host=eosplorer.herokuapp.com request_id=2459982f-14bb-411b-b946-a703b21ff7d1 fwd="115.64.45.25" dyno=web.1 connect=1ms service=30001ms status=503 bytes=0 protocol=https
+
