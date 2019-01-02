@@ -103,3 +103,21 @@ DOMContentLoad: 3.66s
 
 at=error code=H12 desc="Request timeout" method=GET path="/" host=eosplorer.herokuapp.com request_id=2459982f-14bb-411b-b946-a703b21ff7d1 fwd="115.64.45.25" dyno=web.1 connect=1ms service=30001ms status=503 bytes=0 protocol=https
 
+## vulnerability
+npm WARN rollback Rolling back readable-stream@2.3.6 failed (this is probably harmless): EPERM: operation not permitted, lstat 'C:\Users\jack\bin\eoso\workspace\eosplorer\node_modules\fsevents\node_modules'
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+                       === npm audit security report ===
+
+# Run  npm install --save-dev react-scripts@2.1.2  to resolve 1 vulnerability
+  High            Missing Origin Validation
+  Package         webpack-dev-server
+  Dependency of   react-scripts [dev]
+  Path            react-scripts > webpack-dev-server
+  More info       https://nodesecurity.io/advisories/725
+
+  - there's currently no fix until webpack fixes their problem. https://stackoverflow.com/questions/53245592/how-to-fix-missing-origin-validation-error-for-webpack-dev-server-in-npm
+  https://www.npmjs.com/advisories/725/versions
+
+  
+

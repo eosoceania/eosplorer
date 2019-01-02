@@ -14,13 +14,14 @@ var request = require('request');
 
 library.add(faUserAstronaut,faHammer,faCheckSquare,faUserAlt,faUsers);
 
-
 class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
-      userinfo: {
+      loading: false,
+      userinfo: null 
+/*      {
         name: '',
         liquid: '',
         cpu: '',
@@ -31,19 +32,15 @@ class App extends Component {
         ram_usage: '',
         permissions: {},
         producers: []
-      }
+      } 
+*/
     };
 
+    this.loadUserInfo.bind(this);
     this.loadUserInfo('philostratus');
 
   }
 
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.loadUserInfo();
-  }
-  
   loadUserInfo(term){
     //this.setState({loading: true});
     
@@ -66,11 +63,10 @@ class App extends Component {
   }
 
   render() {
-   
-    var cpuProgress=this.state.cpu_limit.used / this.state.cpu_limit.max * 100;
-    var netProgress=this.state.net_limit.used / this.state.net_limit.max * 100;
-    var producers = this.state.producers;
 
+    let userinfo = this.state.userinfo;
+    
+    
 
     //console.log(permissions[0].required_auth.keys[0].key);
 
@@ -86,26 +82,39 @@ class App extends Component {
             <p className="text-center">Your EOS account explorer.</p>
             <br />
             {this.state.loading && <Child />}
-            <SearchBar searchUserInfo={loadUserInfo} />
+            <SearchBar searchUserInfo={this.loadUserInfo} />
           </div>
         </div>
-
-        <br /><hr/>
-        <h4 className="text-center"><FontAwesomeIcon icon="users" /> General</h4>
         
-        <Basics name={this.state.name} liquid={this.state.liquid} cpu={this.state.cpu} net={this.state.net}/>
-        <Advanced ram={this.state.ram_quota} ram_usage={this.state.ram_usage} liquid={this.state.liquid} cpuProg={cpuProgress} netProg={netProgress} netObj={this.state.net_limit} cpuObj={this.state.cpu_limit} net={this.state.net}/>
-        <br/>
-
-        <h4 className="text-center"><FontAwesomeIcon icon="hammer" /> Governance</h4>
-        <Producers name={this.state.name} producers={producers} />
-        <br /><br />
-        
+        {(userinfo)? this.showUserInfo(userinfo) : <Child />}
+          
         <Footer />
       </div>
     );
   }
 
+  showUserInfo(userinfo){
+    let cpuProgress=userinfo.cpu_limit.used / userinfo.cpu_limit.max * 100;
+    let netProgress=userinfo.net_limit.used / userinfo.net_limit.max * 100;
+    let producers = userinfo.producers;
+
+    return (
+      <div id="userinfo">
+        <br /><hr/>
+        <h4 className="text-center"><FontAwesomeIcon icon="users" /> General</h4>
+        
+        <Basics name={userinfo.name} liquid={userinfo.liquid} cpu={userinfo.cpu} net={userinfo.net}/>
+        <Advanced ram={userinfo.ram_quota} ram_usage={userinfo.ram_usage} liquid={userinfo.liquid} 
+          cpuProg={cpuProgress} netProg={netProgress} netObj={userinfo.net_limit} cpuObj={userinfo.cpu_limit}
+          net={userinfo.net}/>
+        <br/>
+
+        <h4 className="text-center"><FontAwesomeIcon icon="hammer" /> Governance</h4>
+        <Producers name={userinfo.name} producers={producers} />
+        <br /><br />
+      </div>
+    );
+  }
 
 
 /* not being used so commenting out for now

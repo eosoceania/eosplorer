@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardText, CardTitle, CardSubtitle, Button, Alert, Progress } from 'reactstrap';
+import { Card, CardTitle, CardSubtitle, Progress } from 'reactstrap';
 import "./App.css";
 
 
@@ -32,9 +32,9 @@ class Advanced extends Component {
 
               <Card body style={{ backgroundColor: '#f9f9f9', borderColor: '#333' }}>
                 <CardTitle className="text"><FontAwesomeIcon icon="tachometer-alt" /> {(this.props.ram_usage / this.props.ram * 100).toFixed(2)} %</CardTitle>
-                <CardText>
+                <div className="progress-container">
                   <Progress color="primary" value={this.props.ram_usage / this.props.ram * 100} />
-                </CardText>
+                </div>
                 <CardSubtitle className="text-muted">RAM - {this.props.ram_usage/1000} kB / {this.props.ram/1000} kB</CardSubtitle>
               </Card>
 
@@ -45,9 +45,9 @@ class Advanced extends Component {
 
               <Card body style={{ backgroundColor: '#f9f9f9', borderColor: '#333' }}>
                 <CardTitle className="text"><FontAwesomeIcon icon="tachometer-alt" /> {this.props.cpuProg.toFixed(2)} %</CardTitle>
-                <CardText>
+                <div className="progress-container">
                   <Progress color="success" value={this.props.cpuProg} />
-                </CardText>
+                </div>
                 <CardSubtitle className="text-muted">CPU - {this.props.cpuObj.used/1000} ms / {this.props.cpuObj.max/1000} ms</CardSubtitle>
               </Card>
 
@@ -58,9 +58,9 @@ class Advanced extends Component {
               <div className="hero-widget well well-sm">
               <Card body style={{ backgroundColor: '#f9f9f9', borderColor: '#333' }}>
                 <CardTitle className="text"><FontAwesomeIcon icon="tachometer-alt" /> {this.props.netProg.toFixed(2)} %</CardTitle>
-                <CardText>
+                <div className="progress-container">
                   <Progress color="warning" value={this.props.netProg} />
-                </CardText>
+                </div>
                 <CardSubtitle className="text-muted">NET - {this.props.netObj.used/1000} kB / {this.props.netObj.max/1000} kB</CardSubtitle>
               </Card>
 

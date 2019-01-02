@@ -28,8 +28,8 @@ class Producers extends Component {
                       </thead>
                       <tbody>
                         {this.props.producers.map(function(name, index){
-                        return <tr key="{index+1}"><td>{index+1}</td><td><FontAwesomeIcon icon="check-square" /> {name}</td></tr>;
-                      })}
+                            return <tr key={"producerinfo_"+(index+1)}><td>{index+1}</td><td><FontAwesomeIcon icon="check-square" /> {name}</td></tr>;
+                        })}
                       </tbody>
                   </table>
               </div>
