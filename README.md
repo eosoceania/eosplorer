@@ -37,8 +37,15 @@ Find <a href="https://www.eosoceania.io">EOS Oceania</a> here:
 <br><a href="https://t.me/joinchat/IB6xJg7tmo7v4knEJyQRSw" target="_blank" rel="noopener">Telegram</a> | <a href="https://discord.gg/eAdBZBv" target="_blank" rel="noopener">Discord</a> |  <a href="https://twitter.com/eosoceania" target="_blank" rel="noopener">Twitter</a> | <a href="https://steemit.com/@eosoceania" target="_blank" rel="noopener">Steemit</a> | <a href="https://www.reddit.com/user/eosoceania" target="_blank" rel="noopener">Reddit</a> | <a href="https://medium.com/eosoceania" target="_blank" rel="noopener">Medium</a> | <a href="https://www.linkedin.com/company/eosoceania" target="_blank" rel="noopener">LinkedIn</a> | <a href="https://www.youtube.com/channel/UCXdy_ey_cyZwuf8bvuymhmA" target="_blank" rel="noopener">Youtube</a>
 
 
-### Additional things to do - DONE:
-./src/App.js
+### Additional things to do:
+[TO FOLLOW UP] Advanced.js: validateDOMNesting(...): <div> cannot appear as a descendant of <p>.
+  This is because https://github.com/reactstrap/reactstrap/issues/715
+  I believe this is because 'CardText' from reactstrap is expecting text, not a 'Progress'.
+  To look into if we can do with out wrapping it in 'CardText'
+[DONE] ./src/Producers.js Line 22:  'Table' is not defined  react/jsx-no-undef
+[DONE] Producer: Each child in an array or iterator should have a unique "key" prop.
+    Check the render method of `Producers`. See https://fb.me/react-warning-keys for more information.
+[DONE] ./src/App.js
   Line 1:    'Component' is defined but never used                                                                      no-unused-vars
   Line 7:    'Alert' is defined but never used                                                                          no-unused-vars
   Line 7:    'Table' is defined but never used                                                                          no-unused-vars
@@ -49,15 +56,7 @@ Find <a href="https://www.eosoceania.io">EOS Oceania</a> here:
   Line 87:   Expected '===' and instead saw '=='                                                                        eqeqeq
   Line 101:  Expected '===' and instead saw '=='                                                                        eqeqeq
   Line 168:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
-printWarnings @ webpackHotDevClient.js:120
-handleWarnings @ webpackHotDevClient.js:137
-push../node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:189
-push../node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:56
-(anonymous) @ main.js:282
-push../node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:280
-push../node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:53
-WebSocketTransport.ws.onmessage @ websocket.js:36
-webpackHotDevClient.js:120 ./src/Footer.js
+[DONE] webpackHotDevClient.js:120 ./src/Footer.js
   Line 3:  'Card' is defined but never used                no-unused-vars
   Line 3:  'CardImg' is defined but never used             no-unused-vars
   Line 3:  'CardText' is defined but never used            no-unused-vars
@@ -69,15 +68,7 @@ webpackHotDevClient.js:120 ./src/Footer.js
   Line 3:  'Progress' is defined but never used            no-unused-vars
   Line 7:  'FontAwesomeIcon' is defined but never used     no-unused-vars
   Line 12:  'bootstrap' is assigned a value but never used  no-unused-vars
-printWarnings @ webpackHotDevClient.js:120
-handleWarnings @ webpackHotDevClient.js:137
-push../node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:189
-push../node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:56
-(anonymous) @ main.js:282
-push../node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:280
-push../node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:53
-WebSocketTransport.ws.onmessage @ websocket.js:36
-webpackHotDevClient.js:120 ./src/Producers.js
+[DONE] webpackHotDevClient.js:120 ./src/Producers.js
   Line 3:  'Card' is defined but never used          no-unused-vars
   Line 3:  'CardImg' is defined but never used       no-unused-vars
   Line 3:  'CardText' is defined but never used      no-unused-vars
@@ -87,15 +78,7 @@ webpackHotDevClient.js:120 ./src/Producers.js
   Line 3:  'Button' is defined but never used        no-unused-vars
   Line 3:  'Alert' is defined but never used         no-unused-vars
   Line 3:  'Progress' is defined but never used      no-unused-vars
-printWarnings @ webpackHotDevClient.js:120
-handleWarnings @ webpackHotDevClient.js:137
-push../node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:189
-push../node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:56
-(anonymous) @ main.js:282
-push../node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:280
-push../node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:53
-WebSocketTransport.ws.onmessage @ websocket.js:36
-webpackHotDevClient.js:120 ./src/Basics.js
+[DONE] webpackHotDevClient.js:120 ./src/Basics.js
   Line 3:  'CardImg' is defined but never used             no-unused-vars
   Line 3:  'CardText' is defined but never used            no-unused-vars
   Line 3:  'CardBody' is defined but never used            no-unused-vars
@@ -103,15 +86,7 @@ webpackHotDevClient.js:120 ./src/Basics.js
   Line 3:  'Alert' is defined but never used               no-unused-vars
   Line 3:  'Progress' is defined but never used            no-unused-vars
   Line 12:  'bootstrap' is assigned a value but never used  no-unused-vars
-printWarnings @ webpackHotDevClient.js:120
-handleWarnings @ webpackHotDevClient.js:137
-push../node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:189
-push../node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:56
-(anonymous) @ main.js:282
-push../node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:280
-push../node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:53
-WebSocketTransport.ws.onmessage @ websocket.js:36
-webpackHotDevClient.js:120 ./src/Advanced.js
+[DONE] webpackHotDevClient.js:120 ./src/Advanced.js
   Line 3:  'CardImg' is defined but never used   no-unused-vars
   Line 3:  'CardBody' is defined but never used  no-unused-vars
   Line 3:  'Button' is defined but never used    no-unused-vars

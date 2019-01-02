@@ -19,7 +19,7 @@ class Producers extends Component {
           <div className="row">
               <div className="col-sm-12">
                   <p className="text-center"><b><FontAwesomeIcon icon="vote-yea" /> {this.props.name}</b> has cast {this.props.producers.length} of 30 votes</p>
-                  <Table>
+                  <table>
                       <thead>
                           <tr>
                               <th>Vote</th>
@@ -28,10 +28,10 @@ class Producers extends Component {
                       </thead>
                       <tbody>
                         {this.props.producers.map(function(name, index){
-                        return <tr><td>{index+1}</td><td><FontAwesomeIcon icon="check-square" /> {name}</td></tr>;
+                        return <tr key="{index+1}"><td>{index+1}</td><td><FontAwesomeIcon icon="check-square" /> {name}</td></tr>;
                       })}
                       </tbody>
-                  </Table>
+                  </table>
               </div>
             </div>
       </div>
