@@ -12,10 +12,11 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "reactstrap": "^6.5.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "react-scripts": "^2.1.1"
   },
   "devDependencies": {
-    "react-scripts": "^2.1.1"
+    
   },
   "scripts": {
     "start": "react-scripts start",
