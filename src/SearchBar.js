@@ -19,7 +19,7 @@ export default class SearchBar extends Component {
         return (
             <div id="searchbar" className="searchbar">
                 {(errorMessage && <Notification msg={errorMessage} />)}
-                {!isEnabled && <Notification />}
+                {!isEnabled && <Notification msg="Account name must be 12 characters."/>}
                 <input value={this.state.term} onChange={event => this.onInputChange(event.target.value)} />
                 <button className="btn btn-primary" disabled={!isEnabled} 
                     onClick={()=> this.props.searchUserInfo(this.state.term)}>Get Account Info</button>
@@ -41,7 +41,7 @@ export default class SearchBar extends Component {
 
 }
 
-const Notification = (msg="Invalid account name.") => (
-    <p style={aStyle}>{msg.msg}</p>
+const Notification = (props) => (
+    <p style={aStyle}>{props.msg}</p>
   )
   

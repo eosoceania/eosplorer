@@ -86,7 +86,6 @@ class App extends Component {
           <div className="col-md-12 col-xs-12">
             <h1 className="text-center"><FontAwesomeIcon icon="user-astronaut" /> EOSplorer <span className="beta">Beta</span></h1>
             <p className="text-center">Your EOS account explorer.</p>
-            <br />
             <SearchBar searchUserInfo={(term) => this.loadUserInfo(term)} errorMessage={this.state.userInfoRespMsg}/>
           </div>
         </div>

@@ -33,7 +33,7 @@ export default class UserDetail extends Component {
     return (
       <div id="userinfo">
         <br /><hr/>
-        <h4 className="text-center"><FontAwesomeIcon icon="users" /> General</h4>
+        <h4 className="text-center"><FontAwesomeIcon icon="users" /> {userinfo.name} Details</h4>
         
         <Basics name={userinfo.name} liquid={userinfo.liquid} cpu={userinfo.cpu} net={userinfo.net}/>
         <Advanced ram={userinfo.ram_quota} ram_usage={userinfo.ram_usage} liquid={userinfo.liquid} 
