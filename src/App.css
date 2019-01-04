@@ -61,3 +61,13 @@ thead{
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+
+.loading {
+  text-align: center;
+  width: 100%;
+}
+
+.searchbar {
+  width: 100%;
+  text-align: center;
+}

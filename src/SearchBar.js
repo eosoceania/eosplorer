@@ -14,14 +14,16 @@ export default class SearchBar extends Component {
 
     render(){
         const isEnabled = this.canBeSubmitted();
-        
+        let errorMessage = this.props.errorMessage;
+
         return (
-            <div id="searchbar">
+            <div id="searchbar" className="searchbar">
+                {(errorMessage && <Notification msg={errorMessage} />)}
                 {!isEnabled && <Notification />}
-                <form className="text-center" onSubmit={()=> this.props.searchUserInfo(this.state.term)}>
                 <input value={this.state.term} onChange={event => this.onInputChange(event.target.value)} />
-                <button className="btn btn-primary" disabled={!isEnabled} type="submit">Get Account Info</button>
-                </form>
+                <button className="btn btn-primary" disabled={!isEnabled} 
+                    onClick={()=> this.props.searchUserInfo(this.state.term)}>Get Account Info</button>
+                
             </div>
         );
     }
@@ -39,7 +41,7 @@ export default class SearchBar extends Component {
 
 }
 
-const Notification = () => (
-    <p style={aStyle}>Invalid account name.</p>
+const Notification = (msg="Invalid account name.") => (
+    <p style={aStyle}>{msg.msg}</p>
   )
   
