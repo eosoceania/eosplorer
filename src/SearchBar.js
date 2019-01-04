@@ -13,13 +13,12 @@ export default class SearchBar extends Component {
     }
 
     render(){
-        const isEnabled = this.canBeSubmitted();
         let errorMessage = this.props.errorMessage;
 
         return (
             <div id="searchbar" className="searchbar">
                 {(errorMessage && <Notification msg={errorMessage} />)}
-                {!isEnabled && <Notification />}
+                {!this.canBeSubmitted() && <Notification />}
                 <input value={this.state.term} onChange={event => this.onInputChange(event.target.value)} />
                 <button className="btn btn-primary" disabled={!isEnabled} 
                     onClick={()=> this.props.searchUserInfo(this.state.term)}>Get Account Info</button>
@@ -34,8 +33,8 @@ export default class SearchBar extends Component {
     
     // jack: I don't understand the logic here, must it be 12 length, no more no less?
     canBeSubmitted() {
-        //return (this.state.term.length === 12);
-        return true;
+        return (this.state.term.length === 12);
+        //return true;
     }
 
 
