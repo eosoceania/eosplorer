@@ -13,12 +13,13 @@ export default class SearchBar extends Component {
     }
 
     render(){
+        const isEnabled = this.canBeSubmitted();
         let errorMessage = this.props.errorMessage;
 
         return (
             <div id="searchbar" className="searchbar">
                 {(errorMessage && <Notification msg={errorMessage} />)}
-                {!this.canBeSubmitted() && <Notification />}
+                {!isEnabled && <Notification />}
                 <input value={this.state.term} onChange={event => this.onInputChange(event.target.value)} />
                 <button className="btn btn-primary" disabled={!isEnabled} 
                     onClick={()=> this.props.searchUserInfo(this.state.term)}>Get Account Info</button>
