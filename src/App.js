@@ -72,7 +72,7 @@ class App extends Component {
       let progress = ( fSupply / fMaxSupply ) * 100;
       console.log("progress", progress);
       return (
-        <div className="currencyStatus">
+        <div id="currencyStatus" className="container">
           <h4 className="text-center"><FontAwesomeIcon icon="thermometer-half" /> Currency Status</h4>
           <p className="text-center">
             <strong>Issuer:</strong> {issuer} 
