@@ -4,22 +4,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserAstronaut,faCheckSquare,faHammer,faUserAlt,faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faUserAstronaut,faCheckSquare,faHammer,faUserAlt,faUsers, faThermometerHalf } from '@fortawesome/free-solid-svg-icons'
+import { Progress } from 'reactstrap';
+import GenericUtil from './util/GenericUtil';
+import {LoadingCard} from './util/ComponentUtil';
+
 import SearchBar from './SearchBar';
 import UserDetail from './UserDetail';
+import Client from './http/client';
 
-var request = require('request');
 
-library.add(faUserAstronaut,faHammer,faCheckSquare,faUserAlt,faUsers);
+library.add(faUserAstronaut,faHammer,faCheckSquare,faUserAlt,faUsers, faThermometerHalf);
 
 class App extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
+      userInfoLoading: true,
       userInfo: null,
       userInfoRespMsg: null,
+      currStatusLoading: true,
+      currStatus: null,
+      currStatusRespMsg: null
 /*      {
         name: '',
         liquid: '',
@@ -36,43 +43,50 @@ class App extends Component {
     };
 
     this.loadUserInfo.bind(this);
+    this.loadCurrencyStatus.bind(this);
     this.loadUserInfo('philostratus');
-    this.handleUserInfoReponse.bind(this);
+    this.loadCurrencyStatus();
   }
 
   loadUserInfo(term){
-    this.setState({loading: true});
-    
-    var options = {
-      method: 'POST',
-      url: 'https://api.eosnewyork.io/v1/chain/get_account',
-      body: { account_name: term },
-      json: true
-    };
-
-    //console.log("load user info, handleUserInfoReponse: ", handleUserInfoReponse);
-    request(options, this.handleUserInfoReponse.bind(this));
-
+    this.setState({userInfoLoading: true});
+    Client.loadUserInfo(term, (error, res, body) => {
+      let {eMsg, retObj} = Client.handleLoadUserInfo(error, res, body);
+      this.setState({userInfoLoading: false, userInfoRespMsg: eMsg, userInfo: retObj});
+    });
   }
 
-  handleUserInfoReponse(error, response, body){
-    let errorMsgStr = "An unexpected error occured while getting user detail please try again later.";
-    if (error) { this.setState({loading: false, userInfoRespMsg: errorMsgStr, userInfo: null}); }
-    console.log("request result returned", response, "App:", this);      
-    if (response.statusCode === 200) {
-      let userInfo =  {
-        name: body.account_name, liquid: body.core_liquid_balance, cpu : body.total_resources.cpu_weight, 
-        net : body.total_resources.net_weight, cpu_limit: body.cpu_limit, net_limit: body.net_limit, 
-        ram_quota: body.ram_quota, ram_usage: body.ram_usage, producers : body.voter_info.producers
-      };
-      this.setState({loading: false, userInfoRespMsg: null, userInfo});
-      //console.log("userInfo: ", userInfo);
-    } else {  
-      this.setState({loading: false, userInfoRespMsg: errorMsgStr, userInfo: null});
-      //console.log("error getting response: ", response.statusCode, body);
+  loadCurrencyStatus(){
+    this.setState({currStatusLoading: true});
+    Client.loadCurrencyStatus((error, res, body) => {
+      let {eMsg, retObj} = Client.handleLoadCurrencyStatus(error, res, body);
+      this.setState({currStatusLoading: false, currStatusRespMsg: eMsg, currStatus: retObj});
+    })
+  }
+
+  renderCurrStatus(){
+    if(!this.state.currStatusLoading && this.state.currStatus) {
+      let {issuer, max_supply, supply} = this.state.currStatus;
+      let fMaxSupply = GenericUtil.parseFloat(max_supply);
+      let fSupply = GenericUtil.parseFloat(supply);
+      let progress = ( fSupply / fMaxSupply ) * 100;
+      console.log("progress", progress);
+      return (
+        <div className="currencyStatus">
+          <h4 className="text-center"><FontAwesomeIcon icon="thermometer-half" /> Currency Status</h4>
+          <p className="text-center">
+            <strong>Issuer:</strong> {issuer} 
+            &nbsp; <strong>Max Supply:</strong> {GenericUtil.numberWithCommas(fMaxSupply)} 
+            &nbsp; <strong>Supply:</strong> {GenericUtil.numberWithCommas(fSupply)} 
+          </p>
+          <Progress value={progress} />
+          <br/>
+        </div>
+      );
+    } else {
+      return (<LoadingCard />);
     }
   }
-
 
   render() {
     //console.log(permissions[0].required_auth.keys[0].key);
@@ -90,7 +104,8 @@ class App extends Component {
           </div>
         </div>
         
-        <UserDetail userInfo={this.state.userInfo} loading={this.state.loading}/>
+        <UserDetail userInfo={this.state.userInfo} loading={this.state.userInfoLoading}/>
+        {this.renderCurrStatus()}
 
         <Footer />
       </div>

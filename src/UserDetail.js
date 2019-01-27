@@ -7,6 +7,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHammer,faUserAlt,faUsers } from '@fortawesome/free-solid-svg-icons'
 
+import {LoadingCard} from './util/ComponentUtil';
+
 library.add(faHammer,faUserAlt,faUsers);
 
 export default class UserDetail extends Component {
@@ -51,8 +53,3 @@ export default class UserDetail extends Component {
 
 }
 
-const LoadingCard = () => (
-    <div id="loading" className="loading">
-        <img width="60px" height="60px" alt="Loading..." src={require('./assets/spinners/loading5.gif')} />
-    </div>
-)
